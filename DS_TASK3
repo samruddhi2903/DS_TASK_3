@@ -1,0 +1,49 @@
+Name: Samruddhi Redij
+
+Task 3 LGMVIP DATASCIENCE
+
+PENCIL SKETCH WITH PYTHON
+
+import cv2
+from IPython.display import Image
+from google.colab.patches import cv2_imshow
+Uploading Image
+
+from google.colab import files
+data_to_load = files.upload()
+Upload widget is only available when the cell has been executed in the current browser session. Please rerun this cell to enable.
+Saving dog.jpg to dog.jpg
+Dog Image
+
+image = cv2.imread("dog.jpg")
+cv2_imshow(image)
+
+Gray Image
+
+gray_image = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
+cv2_imshow(gray_image)
+
+Invert Image
+
+inverted_image=255-gray_image
+cv2_imshow(inverted_image)
+
+Blurred
+
+blurred = cv2.GaussianBlur(inverted_image, (21, 21), 0)
+cv2_imshow(blurred)
+
+Inverted Blurred
+
+inverted_blurred=255-blurred
+cv2_imshow(inverted_blurred)
+
+Pencil Sketch
+
+pencil_sketch = cv2.divide(gray_image, inverted_blurred, scale=256.0)
+cv2_imshow(pencil_sketch)
+
+cv2_imshow(pencil_sketch)
+cv2_imshow(image)
+
+
